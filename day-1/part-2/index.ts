@@ -35,22 +35,17 @@ export default async function() {
 			const lastIndexDigit = line.lastIndexOf(digit.digit);
 
 			if (indexWord > -1) {
+				results.push({ index: indexWord, value: digit.digit });
 				if (indexWord !== lastIndexWord) {
 					// this is potentially both the first and last digit in the line, store both occurrences
 					results.push({ index: lastIndexWord, value: digit.digit });
-					results.push({ index: indexWord, value: digit.digit });
-				} else {
-					results.push({ index: indexWord, value: digit.digit });
-
 				}
 			}
 			if (indexDigit > -1) {
+				results.push({ index: indexDigit, value: digit.digit });
 				if (indexDigit !== lastIndexDigit) {
 					// this is potentially both the first and last digit in the line, store both occurrences
 					results.push({ index: lastIndexDigit, value: digit.digit });
-					results.push({ index: indexDigit, value: digit.digit });
-				} else {
-					results.push({ index: indexDigit, value: digit.digit });
 				}
 			}
 

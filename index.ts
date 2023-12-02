@@ -1,11 +1,11 @@
 async function runDay(day: string) {
 	try {
-	const dayPath = `./day-${day}`;
-	for (const part of ['part-1', 'part-2']) {
-		const modulePath = `${dayPath}/${part}`;
-		const module = await import(modulePath);
-		await module.default();
-	}
+		const dayPath = `./day-${day}`;
+		for (const part of ['part-1', 'part-2']) {
+			const modulePath = `${dayPath}/${part}`;
+			const module = await import(modulePath);
+			await module.default();
+		}
 	} catch (e) {
 		console.error(`day ${day} not found`);
 	}
