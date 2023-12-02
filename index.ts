@@ -7,7 +7,7 @@ async function runDay(day: string) {
 			await module.default();
 		}
 	} catch (e) {
-		console.error(`day ${day} not found`);
+		console.error(e);
 	}
 }
 
