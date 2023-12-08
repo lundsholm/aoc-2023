@@ -13,12 +13,18 @@ export default async function() {
 		if (line === '') {
 			continue;
 		}
+		// each card row
 		let [winningNumbers, userNumbers] = line.replace(/^Card .*\d.*\: +/, '').split(' | ');
+
+		// extract each side of the card and remove any empty strings
 		let winningNumbersList = winningNumbers.split(' ').filter((number) => number !== '');
 		let userNumbersList = userNumbers.split(' ').filter((number) => number !== '');
+		// keep track of matched numbers to avoid duplicates
 		let matchedNumbers: Record<string, boolean> = {};
+
 		for (let number of winningNumbersList) {
 			if (userNumbersList.includes(number) && !matchedNumbers.hasOwnProperty(number)) {
+				// the winning number was part of the user's numbers and we haven't seen it before
 				matchedNumbers[number] = true;
 				totalMatches++;
 			}
